@@ -1,8 +1,6 @@
 const { io } = require('../index')
 
 io.on('connection', (client) => {
-    console.log('Usuario conectado')
-
     client.emit('welcomeMessage', {
         title: 'Welcome!',
         message: 'You are online, enjoy!'
@@ -11,7 +9,7 @@ io.on('connection', (client) => {
     })
 
     client.on('disconnect', () => {
-        console.log('Usuario desconectado')
+        console.log('User disconnected')
     })
 
     client.on('sendMessage', (message, callback) => {
